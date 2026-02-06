@@ -11,11 +11,10 @@ namespace Lab1.Domain.Core
     class Ticket : SellableItemBase, IIdenifiable, IReceiptLine
     {
         public string Id { get; }
-        public string OwnerId {  get; }
-        public Ticket (string id, string name, string ownerId, decimal basePrice) : base(name, basePrice)
+        public Event eVent {  get; }
+        public Ticket (string id, string name, decimal basePrice) : base(name, basePrice)
         {
             Id = id;
-            OwnerId = ownerId;
         }
 
     }

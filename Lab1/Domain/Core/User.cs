@@ -11,6 +11,7 @@ namespace Lab1.Domain.Core
     {
         public string Id { get; }
         public string Name { get; }
+        public Wallet Wallet { get; set; }
         public User(string id, string name)
         {
             Id = id;

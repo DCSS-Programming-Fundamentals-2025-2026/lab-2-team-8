@@ -11,13 +11,12 @@ namespace Lab1.Domain.Core
     {
         public string Id { get; }
         public string Name { get; }
-        public string Status { get; set; }
+        public string Status { get; set; } = "Planned";
         public DateTime DT { get; }
-        public Event (string id, string name, string status, DateTime dT)
+        public Event (string id, string name, DateTime dT)
         {
             Id = id;
             Name = name;
-            Status = status;
             DT = dT;
         }
     }

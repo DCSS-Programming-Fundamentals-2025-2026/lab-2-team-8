@@ -10,12 +10,12 @@ namespace Lab1.Domain.Core
     class Wallet : IIdenifiable
     {
         public string Id { get; }
-        public string OwnerId { get; }
+        public User uSer { get; }
         public decimal Balance { get; set; }
-        public Wallet (string id, string ownerId, decimal balance)
+        public Wallet (string id, User user, decimal balance)
         {
             Id = id;
-            OwnerId = ownerId;
+            uSer = user;
             Balance = balance;
         }
     }
