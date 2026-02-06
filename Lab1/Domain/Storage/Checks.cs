@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab1.Domain.Core.Interfaces
+namespace Lab1.Domain.Storage
 {
-    interface IReceiptLine
+    internal class Checks
     {
-        public string PrintCheck();
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab1.Domain.Storage
 {
-    internal class Event
+    class Events
     {
     }
 }
