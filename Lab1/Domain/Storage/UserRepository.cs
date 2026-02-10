@@ -10,7 +10,6 @@ namespace Lab1.Domain.Storage
     class UserRepository
     {
         User[] users = new User[50];
-        public UserRepository() { }
 
         private int _count = 0;
 
@@ -25,7 +24,6 @@ namespace Lab1.Domain.Storage
             return true;
         }
 
-
         public User GetUserById(string id)
         {
             for (int i = 0; i < _count; i++)
@@ -37,7 +35,6 @@ namespace Lab1.Domain.Storage
             }
             return null;
         }
-
 
         public void PrintAll()
         {

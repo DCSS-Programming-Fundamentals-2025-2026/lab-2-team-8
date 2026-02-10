@@ -12,7 +12,7 @@ namespace Lab1.App
     {
         public static void Main(string[] args)
         {
-            
+            //before every action use ChangeStatus()
         }
     }
 }

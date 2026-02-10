@@ -13,10 +13,12 @@ namespace Lab1.Domain.Core
         public string Id { get; }
         public Event eVent { get; }
         public User Owner { get; set; }
+        public decimal Price { get; set; }
         public Ticket (string id, Event evEnt, string name, decimal basePrice) : base(name, basePrice)
         {
             Id = id;
             eVent = evEnt;
+            Price = basePrice;
         }
         public override bool Equals(object? obj)
         {
