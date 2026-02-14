@@ -12,6 +12,11 @@ namespace Lab1.Domain.Storage
         User[] users = new User[50];
 
         private int _count = 0;
+        
+        public int GetCount()
+        {
+            return _count;
+        }
 
         public bool AddUser(User user)
         {

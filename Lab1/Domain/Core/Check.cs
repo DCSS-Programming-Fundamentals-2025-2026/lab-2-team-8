@@ -14,12 +14,11 @@ namespace Lab1.Domain.Core
         public Ticket Ticket { get; }
         public string Status { get; }
         public Wallet Wallet { get; }
-        public Check(string id, Ticket ticket, string status, Wallet wallet)
+        public Check(string id, Ticket ticket, string status)
         {
             Id = id;
             Ticket = ticket;
             Status = status;
-            Wallet = wallet;
         }
         public override string ToString()
         {

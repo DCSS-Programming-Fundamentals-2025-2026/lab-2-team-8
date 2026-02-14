@@ -32,7 +32,7 @@ namespace Lab1.Domain.Storage
             }
             tickets[_countT] = ticket;
             wallet.Balance -= ticket.Price;
-            checks[_countC] = new Check("check" + _countC, ticket, "Purchasing", wallet);
+            checks[_countC] = new Check("check" + _countC, ticket, "Purchasing");
 
             _countC++;
             _countT++;
@@ -97,7 +97,7 @@ namespace Lab1.Domain.Storage
             tickets[indexToDelete] = tickets[_countT - 1]; 
             wallet.Balance += ticket.Price / (decimal)1.75;
             revenue -= ticket.Price / (decimal)1.75;
-            checks[_countC] = new Check("check" + _countC, ticket, "Returning", wallet);
+            checks[_countC] = new Check("check" + _countC, ticket, "Returning");
 
             _countC++;
             _countT--;
