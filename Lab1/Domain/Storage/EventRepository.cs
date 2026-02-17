@@ -12,9 +12,14 @@ namespace Lab1.Domain.Storage
         Event[] events = new Event[50];
         private int _count;
 
+        public int GetCount()
+        {
+            return _count;
+        }
+
         public bool AddEvent(Event evenT)
         {
-            if (events.Contains(evenT) || _count == 50 || evenT.DT < DateTime.Now)
+            if (events.Contains(evenT) || _count == 50)
             {
                 return false;
             }
@@ -56,7 +61,7 @@ namespace Lab1.Domain.Storage
                     planned++;
                 }
             }
-            Console.WriteLine($"Planned: {planned}, Ongoing: {ongoing}, Finished: {finished}");
+            Console.WriteLine($"Events:\r\nPlanned: {planned}, Ongoing: {ongoing}, Finished: {finished}");
         }
 
         public Event GetEventById(string id)
@@ -75,7 +80,7 @@ namespace Lab1.Domain.Storage
         {
             if (_count == 0)
             {
-                Console.WriteLine("Create some first");
+                Console.WriteLine("Create some first.");
             }
             else
             {

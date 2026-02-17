@@ -10,26 +10,18 @@ namespace Lab1.Domain.Core
     class Wallet : IIdenifiable
     {
         public string Id { get; }
-        public User uSer { get; }
+        public User User { get; }
         public decimal Balance { get; set; }
         public Wallet (string id, User user, decimal balance)
         {
             Id = id;
-            uSer = user;
+            User = user;
             Balance = balance;
         }
 
         public override string ToString()
         {
-            return $"Wallet Id: {Id}\r\n owner: {uSer.Name}, {uSer.Id}\r\n balance: {Balance}";
-        }
-        public override bool Equals(object? obj)
-        {
-            if (obj is not Wallet || obj == null)
-            {
-                return false;
-            }
-            return Id.Equals(((Wallet)obj).Id);
+            return $"Wallet Id: {Id}, balance: {Balance}";
         }
     }
 }

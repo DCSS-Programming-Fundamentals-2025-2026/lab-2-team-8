@@ -22,7 +22,7 @@ namespace Lab1.Domain.Core
         }
         public override string ToString()
         {
-            return $"Id: {Id}, Operation time: {PaymentTime}";
+            return $"Id: {Id}, Operation time: {PaymentTime}, Status: {Status}";
         }
     }
 }

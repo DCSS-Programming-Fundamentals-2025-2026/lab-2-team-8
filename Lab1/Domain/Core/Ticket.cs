@@ -13,13 +13,15 @@ namespace Lab1.Domain.Core
         public string Id { get; }
         public Event eVent { get; }
         public User Owner { get; set; }
-        public decimal Price { get; set; }
-        public Ticket (string id, Event evEnt, string name, decimal basePrice) : base(name, basePrice)
+        public decimal Price { get; set; } 
+        public Ticket (string id, Event evEnt, User owner, string name, decimal basePrice) : base(name, basePrice)
         {
             Id = id;
+            Owner = owner;
             eVent = evEnt;
-            Price = basePrice;
+            Price = base.BasePrice;
         }
+
         public override bool Equals(object? obj)
         {
             if (obj is not Ticket || obj == null)
@@ -28,9 +30,13 @@ namespace Lab1.Domain.Core
             }
             return Id.Equals(((Ticket)obj).Id);
         }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Owner, Price);
+        }
         public string PrintCheck()
         {
-            return $"Id: {Id}\r\n Event: {eVent}\r\n Price: {BasePrice}\r\nBuyer: {Owner.Name}, {Owner.Id}";
+            return $"Id: {Id} Event: {eVent.Name} Price: {BasePrice} Buyer: {Owner.Name}";
         }
     }
 }

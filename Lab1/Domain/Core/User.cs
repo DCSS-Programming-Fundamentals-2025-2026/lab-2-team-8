@@ -22,9 +22,9 @@ namespace Lab1.Domain.Core
         {
             if (Wallet == null)
             {
-                return $"Id:{Id}\r\nName: {Name}\r\nWallet: None";
+                return $"Id:{Id} Name: {Name} Wallet: None";
             }
-            return $"Id:{Id}\r\nName: {Name}\r\nWallet: {Wallet.ToString()}";
+            return $"Id:{Id} Name: {Name} Wallet: {Wallet.ToString()}";
         }
         public override bool Equals(object? obj)
         {

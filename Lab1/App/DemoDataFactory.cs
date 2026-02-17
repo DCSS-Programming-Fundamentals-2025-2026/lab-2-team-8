@@ -11,20 +11,20 @@ namespace Lab1.App
     {
         public DemoDataFactory() { }
 
-        public void UserFactory(int number)
+        public User UserFactory(int number)
         {
-            User user = new User("user" + number, "Max" + number);
+            return new User("user" + number, "Max" + number);
         }
 
-        public void WalletFactory(int number, User user)
+        public Wallet WalletFactory(int number, User user)
         {
             Random rnd = new Random();
-            Wallet wallet = new Wallet("wallet" + number, user, rnd.Next(2000));
+            return new Wallet("wallet" + number, user, rnd.Next(2000));
         }
 
-        public void EventFactory(int number)
+        public Event EventFactory(int number, DateTime dt)
         {
-            Event @event = new Event("event" + number, )
+            return new Event("event" + number, "concert" + number, dt);
         }
     }
 }

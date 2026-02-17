@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab1.Domain.Core.Interfaces
+﻿namespace Lab1.Domain.Core.Interfaces
 {
     interface IIdenifiable
     {
-        string Id { get; }
+        public string Id { get; }
     }
 }

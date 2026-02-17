@@ -20,6 +20,11 @@ namespace Lab1.Domain.Storage
         private int returned = 0;
         private decimal revenue = 0;
 
+        public int GetCount()
+        {
+            return _countT;
+        }
+
         public bool AddTicket(Ticket ticket, Wallet wallet)
         {
             if (tickets.Contains(ticket) || _countT == 500 || wallet.Balance < ticket.BasePrice || ticket.eVent.DT < DateTime.Now)
@@ -28,8 +33,9 @@ namespace Lab1.Domain.Storage
             }
             if (ticket.eVent.Status == "Ongoing")
             {
-                ticket.Price *= (decimal)1.5;
+                ticket.Price *= (decimal)0.8;
             }
+            ticket.Owner = wallet.uSer;
             tickets[_countT] = ticket;
             wallet.Balance -= ticket.Price;
             checks[_countC] = new Check("check" + _countC, ticket, "Purchasing");
@@ -37,22 +43,11 @@ namespace Lab1.Domain.Storage
             _countC++;
             _countT++;
             sold++;
-            revenue++;
+            revenue += ticket.Price;
 
             return true;
         }
-        public int GetTicketIndexById(string id)
-        {
-            for (int i = 0; i < _countT; i++)
-            {
-                if (id == tickets[i].Id)
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
-        public Ticket GetTicketByID(string id)
+        public Ticket GetTicketById(string id)
         {
             for (int i = 0; i < _countT; i++)
             {
@@ -93,14 +88,12 @@ namespace Lab1.Domain.Storage
             {
                 return false;
             }
-            int indexToDelete = GetTicketIndexById(ticket.Id);
-            tickets[indexToDelete] = tickets[_countT - 1]; 
-            wallet.Balance += ticket.Price / (decimal)1.75;
-            revenue -= ticket.Price / (decimal)1.75;
+            ticket.Owner = null;
+            wallet.Balance += ticket.Price / (decimal)1.25;
+            revenue -= ticket.Price / (decimal)1.25;
             checks[_countC] = new Check("check" + _countC, ticket, "Returning");
 
             _countC++;
-            _countT--;
             returned++;
             return true;
         }
@@ -109,9 +102,13 @@ namespace Lab1.Domain.Storage
             decimal revenue = 0;
             for (int i = 0; i < _countT; i++)
             {
-                if (tickets[i].eVent == @event)
+                if (tickets[i].eVent == @event && tickets[i].Owner != null)
                 {
                     revenue += tickets[i].BasePrice;
+                }
+                if (tickets[i].eVent == @event && tickets[i].Owner == null)
+                {
+                    revenue += tickets[i].BasePrice - tickets[i].BasePrice / (decimal)1.25;
                 }
             }
             Console.WriteLine(@event.ToString() + $"Revenue: {revenue}");
@@ -120,28 +117,44 @@ namespace Lab1.Domain.Storage
         {
             Console.WriteLine($"Sold: {sold}, Returned: {returned}, Total Revenue: {revenue}");
         }
-        public void PrintCheck(string id)
-        {
-            Check check = GetCheckById(id);
-            if ( check != null )
-            {
-                Console.WriteLine(check.ToString());
-            }
-            else
-            {
-                Console.WriteLine("No checks with such id.");
-            }
-        }
         public void PrintCheck(Ticket ticket)
         {
             Check check = GetCheckByTicket(ticket);
             if (check != null)
             {
-                Console.WriteLine(check.ToString());
+                int _checksFound = 0;
+                for (int i = 0; i < _countC; i++)
+                {
+                    if (checks[i].Ticket == ticket)
+                    {
+                        _checksFound++;
+                        Console.WriteLine(checks[i].ToString());
+                    }
+                    if (_checksFound == 2)
+                    {
+                        break;
+                    }
+                }
             }
             else
             {
                 Console.WriteLine("No checks with such ticket.");
+            }
+        }
+        public void PrintTicketsForUser(User user) 
+        {
+            int numberOfTickets = 0;
+            for (int i = 0; i < _countT; i++)
+            {
+                if (tickets[i].Owner == user)
+                {
+                    Console.WriteLine(tickets[i].PrintCheck());
+                    numberOfTickets++;
+                }
+            }
+            if (numberOfTickets == 0)
+            {
+                Console.WriteLine("This user has no  tickets.");
             }
         }
     }

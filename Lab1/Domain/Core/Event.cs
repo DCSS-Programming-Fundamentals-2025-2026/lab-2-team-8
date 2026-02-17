@@ -21,7 +21,7 @@ namespace Lab1.Domain.Core
         }
         public override string ToString()
         {
-            return $"Id: {Id}\r\nName: {Name}\r\nStatus: {Status}\r\nScheduled: {DT}\r\n";
+            return $"Id: {Id} Name: {Name} Status: {Status} Scheduled: {DT}\r\n";
         }
     }
 }

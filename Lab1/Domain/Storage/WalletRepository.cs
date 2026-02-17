@@ -12,6 +12,11 @@ namespace Lab1.Domain.Storage
         Wallet[] wallets = new Wallet[50];
         private int _count = 0;
 
+        public int GetCount()
+        {
+            return _count;
+        }
+
         public bool AddWallet(Wallet wallet, User user)
         {
             if (_count == 50 || wallets.Contains(wallet))
