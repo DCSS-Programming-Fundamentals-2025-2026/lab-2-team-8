@@ -7,15 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da68df66-ece9-4610-9260-0f16199afcee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Domain/Core/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Core/Event.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Core/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Core/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Core/Wallet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Core/Wallet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Storage/EventRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Storage/EventRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Storage/SaleRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Storage/SaleRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Storage/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Storage/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Storage/WalletRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Storage/WalletRepository.cs" afterDir="false" />
-    </list>
+    <list default="true" id="da68df66-ece9-4610-9260-0f16199afcee" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +21,7 @@
     <setting file="file://$PROJECT_DIR$/Domain/Core/Enumerators/EventEnumerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Domain/Core/Enumerators/UserEnumerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Domain/Core/Enumerators/WalletEnumerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Domain/Storage/TecketRepository.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 5
@@ -88,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1771436041454</updated>
-      <workItem from="1771436042551" duration="3306000" />
+      <workItem from="1771436042551" duration="4290000" />
     </task>
     <servers />
   </component>
