@@ -59,5 +59,10 @@ namespace Lab1.Domain.Storage
     {
         return new UserEnumerator(users);
     }
+    
+    public void Sort()
+    {
+        Array.Sort(users);
+    }
     }
 }

@@ -84,4 +84,9 @@ public class TicketRepository : IEnumerable
     {
         return new TicketEnumerator(tickets);
     }
+    
+    public void Sort()
+    {
+        Array.Sort(tickets);
+    }
 }

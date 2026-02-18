@@ -40,5 +40,10 @@ namespace Lab1.Domain.Storage
         {
             return new WalletEnumerator(wallets);
         }
+        
+        public void Sort()
+        {
+            Array.Sort(wallets);
+        }
     }
 }

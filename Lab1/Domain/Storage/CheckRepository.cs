@@ -51,7 +51,7 @@ namespace Lab1.Domain.Storage
             return null;
         }
 
-        public bool SellTicket(Ticket[] tickets, Ticket ticket, Wallet wallet, int _countT)
+        public bool AddCheck(Ticket[] tickets, Ticket ticket, Wallet wallet, int _countT)
         {
             Check check = GetCheckByTicket(ticket);
             if (!(tickets.Contains(ticket)) || _countT == 0 || check == null)
@@ -100,6 +100,11 @@ namespace Lab1.Domain.Storage
         public IEnumerator GetEnumerator()
         {
             return new CheckEnumerator(checks);
+        }
+
+        public void Sort()
+        {
+            Array.Sort(checks);
         }
     }
 }

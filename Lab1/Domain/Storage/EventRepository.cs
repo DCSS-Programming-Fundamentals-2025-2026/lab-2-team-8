@@ -92,5 +92,10 @@ namespace Lab1.Domain.Storage
         {
             return new EventEnumerator(events);
         }
+
+        public void Sort()
+        {
+            Array.Sort(events);
+        }
     }
 }

@@ -17,7 +17,20 @@ namespace Lab1.App
             bool isTrue = true;
             while (isTrue)
             {
-                Console.WriteLine($"0 - exit\r\n1 - add user\r\n2 - add wallet\r\n3 - add event\r\n4 - buy ticket\r\n5 - print all users\r\n6 - print all events\r\n7 - return ticket\r\n8 - print check\r\n9 - summary for event\r\n10 - final summary\r\n11 - add funds\r\n12 - print tickets of user");
+                Console.WriteLine($"0 - exit\r" +
+                                  $"\n1 - add user\r" +
+                                  $"\n2 - add wallet\r" +
+                                  $"\n3 - add event\r" +
+                                  $"\n4 - buy ticket\r" +
+                                  $"\n5 - print all users\r" +
+                                  $"\n6 - print all events\r" +
+                                  $"\n7 - return ticket\r" +
+                                  $"\n8 - print check\r" +
+                                  $"\n9 - summary for event\r" +
+                                  $"\n10 - final summary\r" +
+                                  $"\n11 - add funds\r" +
+                                  $"\n12 - print tickets of user");
+                
                 string stringInput = Console.ReadLine();
                 bool isSuccess = int.TryParse(stringInput, out int input);
                 if (isSuccess)
@@ -186,7 +199,7 @@ namespace Lab1.App
                             Ticket ticket = ticketRepository.GetTicketById(ticketId);
                             if (ticket != null)
                             {
-                                bool soldSuccessfulyy = checkRepository.SellTicket(ticketRepository.tickets, ticket, ticket.Owner.Wallet, ticketRepository._count);
+                                bool soldSuccessfulyy = checkRepository.AddCheck(ticketRepository.tickets, ticket, ticket.Owner.Wallet, ticketRepository._count);
                                 if (soldSuccessfulyy)
                                 {
                                     Console.WriteLine("Sold successfully");
@@ -316,9 +329,46 @@ namespace Lab1.App
                             }
                         }
                     }
+                    else if (input == 13)
+                    {
+                        Console.Write("What to sort?" +
+                                      "\n1) Checks" +
+                                      "\n2) Events" +
+                                      "\n3) Tickets" +
+                                      "\n4) Users" +
+                                      "\n5) Wallet" +
+                                      "\n\n-->Enter: ");
+                        
+                        input = int.Parse(Console.ReadLine());
+
+                        if (input == 1)
+                        {
+                            checkRepository.Sort();
+                        }
+                        else if (input == 2)
+                        {
+                            eventRepository.Sort();
+                        }
+                        else if (input == 3)
+                        {
+                            ticketRepository.Sort();
+                        }
+                        else if (input == 4)
+                        {
+                            userRepository.Sort();
+                        }
+                        else if (input == 5)
+                        {
+                            walletRepository.Sort();
+                        }
+                    }
+                    else if (input == 14)
+                    {
+                        
+                    }
                     else
                     {
-                        Console.WriteLine("The numer must be between 0 and 12.");
+                        Console.WriteLine("The input must be between 0 and 12.");
                     }
                 }
                 else
