@@ -2,7 +2,7 @@
 
 namespace Lab1.Domain.Core
 {
-    class User : IIdenifiable
+    public class User : IIdenifiable
     {
         public string Id { get; }
         public string Name { get; }

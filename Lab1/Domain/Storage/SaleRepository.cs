@@ -1,4 +1,6 @@
-﻿using Lab1.Domain.Core;
+﻿using System.Collections;
+using Lab1.Domain.Core;
+using Lab1.Domain.Core.Enumerators;
 
 namespace Lab1.Domain.Storage
 {

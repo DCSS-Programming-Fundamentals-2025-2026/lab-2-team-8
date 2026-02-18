@@ -2,7 +2,7 @@
 
 namespace Lab1.Domain.Core
 {
-    class Wallet : IIdenifiable
+    public class Wallet : IIdenifiable
     {
         public string Id { get; }
         public User User { get; }

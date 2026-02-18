@@ -2,7 +2,7 @@
 
 namespace Lab1.Domain.Core
 {
-    class Event : IIdenifiable
+    public class Event : IIdenifiable
     {
         public string Id { get; }
         public string Name { get; }

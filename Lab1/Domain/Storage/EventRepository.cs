@@ -1,8 +1,10 @@
-﻿using Lab1.Domain.Core;
+﻿using System.Collections;
+using Lab1.Domain.Core;
+using Lab1.Domain.Core.Enumerators;
 
 namespace Lab1.Domain.Storage
 {
-    class EventRepository
+    class EventRepository : IEnumerable
     {
         Event[] events = new Event[50];
         private int _count;
@@ -84,6 +86,11 @@ namespace Lab1.Domain.Storage
                     Console.WriteLine(events[i].ToString());
                 }
             }
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return new EventEnumerator(events);
         }
     }
 }
