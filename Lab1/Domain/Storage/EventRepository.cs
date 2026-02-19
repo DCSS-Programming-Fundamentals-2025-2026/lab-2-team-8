@@ -1,15 +1,26 @@
+<<<<<<< HEAD
 ﻿using Lab1.Domain.Core;
 <<<<<<< HEAD
 =======
 namespace Lab1.Domain.Storage;
 >>>>>>> d61e295 (Tests.)
+=======
+﻿using System.Collections;
+using Lab1.Domain.Core;
+using Lab1.Domain.Core.Comparers;
+using Lab1.Domain.Core.Enumerators;
+>>>>>>> 5642b93c31b07d2060d14ef13f0800239f03ad7f
 
 public class EventRepository
 {
+<<<<<<< HEAD
     protected Event[] events = new Event[50];
     protected int _count;
 
     public int GetCount()
+=======
+    class EventRepository : IEnumerable
+>>>>>>> 5642b93c31b07d2060d14ef13f0800239f03ad7f
     {
         return _count;
     }
@@ -36,6 +47,21 @@ public class EventRepository
             {
                 events[i].Status = "Ongoing";
             }
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return new EventEnumerator(events);
+        }
+        
+        public void NatSort()
+        {
+            Array.Sort(events, 0, _count);
+        }
+
+        public void AltSort()
+        {
+            Array.Sort(events, 0, _count, new EventComparer());
         }
     }
     public void SummaryEvents()
