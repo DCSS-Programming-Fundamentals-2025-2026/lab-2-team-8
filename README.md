@@ -7,6 +7,7 @@
 ```
 Учасники 8-team:
   1)
+  1) 
   2)
 ```
 ## Хто QA / хто Core
@@ -48,3 +49,4 @@ Iduno
 5) Wallet - `Balance`
 
 :shipit:
+5) Wallet - `Balance`
